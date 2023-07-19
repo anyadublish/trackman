@@ -17,7 +17,7 @@ limbs = [pm.ARM_LOWER_RIGHT,pm.ARM_UPPER_RIGHT,pm.UPPER_BODY_RIGHT,pm.LEG_UPPER_
         
 video = st.file_uploader('upload your video')
 analyzer = pm.Analyzer()
-col1, col2 = st.columns()
+col1, col2 = st.columns(2)
 if video is not None:
     tfile = tempfile.NamedTemporaryFile(delete=False)
     tfile.write(video.read())
