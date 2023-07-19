@@ -396,7 +396,8 @@ class Analyzer():
 
         fig.text(0.2, 0.47, 'Overall Score: ' + str(self.score_motion()), horizontalalignment='left',verticalalignment='center',fontsize = 15, family = 'sans-serif', color = 'red')
         fig.text(0.2, 0.4,self.give_suggestions(),horizontalalignment='left',verticalalignment='center',fontsize = 12, family = 'sans-serif',color = 'blue')
-        fig.savefig(('Graphs/' + name + '.pdf'))
+        #fig.savefig(('Graphs/' + name + '.pdf'))
+    
 
         return fig
 
