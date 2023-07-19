@@ -14,7 +14,13 @@ from ffmpy import FFmpeg
 joints = [pm.SHOULDER_RIGHT,pm.HIP_RIGHT,pm.KNEE_RIGHT,pm.ANKLE_RIGHT,pm.ELBOW_RIGHT]
 limbs = [pm.ARM_LOWER_RIGHT,pm.ARM_UPPER_RIGHT,pm.UPPER_BODY_RIGHT,pm.LEG_UPPER_RIGHT,pm.LEG_LOWER_RIGHT, pm.FOOT_RIGHT]
 
-        
+st.title('Basketball Trackman')
+st.subheader('Presented by Anya Dublish')
+st.markdown('''
+What to do: 
+- Upload your video 
+- Wait for the process to run 
+- You have your posture reviewed!''')
 video = st.file_uploader('upload your video')
 analyzer = pm.Analyzer()
 col1, col2 = st.columns(2)
@@ -36,7 +42,7 @@ if video is not None:
     fr.run()
     st.write('the output video is being processed')
     col2.video('user.mov')
-    time.sleep(15)
+    time.sleep(2)
     os.remove('user.mov')
 
 
