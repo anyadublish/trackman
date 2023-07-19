@@ -17,6 +17,7 @@ limbs = [pm.ARM_LOWER_RIGHT,pm.ARM_UPPER_RIGHT,pm.UPPER_BODY_RIGHT,pm.LEG_UPPER_
         
 video = st.file_uploader('upload your video')
 analyzer = pm.Analyzer()
+col1, col2 = st.columns()
 if video is not None:
     tfile = tempfile.NamedTemporaryFile(delete=False)
     tfile.write(video.read())
@@ -29,14 +30,16 @@ if video is not None:
     st.write('Overall Score: ',analyzer.score_motion())
     st.write(analyzer.give_suggestions())
     os.remove('user.MOV')
-    st.pyplot(analyzer.output_graph())
+    col1.pyplot(analyzer.output_graph())
     analyzer.output_video(name = 'user', limbs = limbs, out_frame_rate = 12)
     fr = FFmpeg(inputs={'user.avi':None},outputs={'user.mov':None})
     fr.run()
     st.write('the output video is being processed')
-    st.video('user.mov')
+    col2.video('user.mov')
     time.sleep(15)
     os.remove('user.mov')
+
+
     
     
     
